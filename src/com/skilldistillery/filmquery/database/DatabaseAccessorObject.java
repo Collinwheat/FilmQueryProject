@@ -147,11 +147,11 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				keywordFilms.add(film);
 
 			}
-			for (int i = 0; i < keywordFilms.size(); i++) {
-				if (keywordFilms.get(i) != null) {
-					System.out.println(keywordFilms.get(i));
-				} else {
+				if (keywordFilms.isEmpty()) {
 					System.out.println("No Matches Found");
+				} else {
+					for (int i = 0; i < keywordFilms.size(); i++) {
+					System.out.println(keywordFilms.get(i));
 				}
 			}
 
@@ -170,7 +170,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		}
 
 		String language = "";
-		String sql = "SELECT language.name FROM language JOIN film ON language.id = film.id WHERE film.id = ?;";
+		String sql = "SELECT language.name FROM language JOIN film ON language.id = film.language_id WHERE film.id = ?;";
 
 		try {
 			Connection conn = DriverManager.getConnection(URL, user, pass);
@@ -178,10 +178,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			stmt.setInt(1, filmId);
 			ResultSet langResult = stmt.executeQuery();
 
-			if (langResult.next()) {
-				language = langResult.getString("language.name");
-			}else if(langResult.equals(null)){
-				language = "Language unknown";
+			if(langResult.next()) {
+				language = langResult.getNString("language.name");
 			}
 			conn.close();
 			stmt.close();
