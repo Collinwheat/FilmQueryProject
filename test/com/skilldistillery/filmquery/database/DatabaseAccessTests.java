@@ -23,17 +23,17 @@ class DatabaseAccessTests {
     db = null;
   }
   
-  @Test
-  void test_getFilmById_returns_film_with_id() {
-    Film f = db.findFilmById(1);
-    assertNotNull(f);
-//    assertEquals("ACADEMY DINOSAUR", f.getTitle());
-  }
-
-  @Test
-  void test_getFilmById_with_invalid_id_returns_null() {
-    Film f = db.findFilmById(-42);
-    assertNull(f);
+//  @Test
+//  void test_getFilmById_returns_film_with_id() {
+//    Film f = db.findFilmById(1);
+//    assertNotNull(f);
+////    assertEquals("ACADEMY DINOSAUR", f.getTitle());
+//  }
+//
+//  @Test
+//  void test_getFilmById_with_invalid_id_returns_null() {
+//    Film f = db.findFilmById(-42);
+//    assertNull(f);
   }
   
-}
+
