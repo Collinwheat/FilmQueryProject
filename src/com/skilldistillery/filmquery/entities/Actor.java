@@ -9,9 +9,6 @@ public class Actor {
 	private String lastName;
 	private List<Film> films;
 
-	public Actor() {
-
-	}
 
 	public Actor(int id, String fname, String lname) {
 		this.id = id;

@@ -1,5 +1,6 @@
 package com.skilldistillery.filmquery.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Film {
@@ -12,9 +13,11 @@ public class Film {
 	private double replacementCost;
 	private String rating;
 	private String specialFeatures;
+	private List<Actor> cast;
+	private String language;
 
 	public Film(int id, String title, String description, Integer releaseYear, int languageId, Integer length,
-			double replacementCost, String rating, String specialFeatures) {
+			double replacementCost, String rating, String specialFeatures, List<Actor> cast, String language) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -25,8 +28,23 @@ public class Film {
 		this.replacementCost = replacementCost;
 		this.rating = rating;
 		this.specialFeatures = specialFeatures;
+		this.cast = cast;
+		this.language = language;
 	}
 	
+
+	public Film() {
+		
+	}
+	
+	public String getLanguage() {
+		return language;
+	}
+	
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -34,8 +52,15 @@ public class Film {
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	
+
+	public List<Actor> getCast() {
+		return cast;
+	}
+
+	public void setCast(List<Actor> cast) {
+		this.cast = cast;
+	}
 
 	public String getTitle() {
 		return title;
@@ -125,8 +150,8 @@ public class Film {
 
 	@Override
 	public String toString() {
-		return "Film [id=" + id + ", title=" + title + ", description=" + description + ", releaseYear=" + releaseYear
-				+ ", languageId=" + languageId + ", length=" + length + ", replacementCost=" + replacementCost
-				+ ", rating=" + rating + ", specialFeatures=" + specialFeatures + "]";
+		return "Film \n id=" + id + "\n title=" + title + "\n description=" + description + "\n releaseYear=" + releaseYear
+				+ "\n languageId=" + languageId + "\n length=" + length + "\n replacementCost=" + replacementCost
+				+ "\n rating=" + rating + "\n specialFeatures=" + specialFeatures + "\n actors=" + cast + "\n language = "+ language ;
 	}
 }
